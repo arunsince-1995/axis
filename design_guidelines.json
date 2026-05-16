@@ -1,0 +1,172 @@
+{
+  "theme": "dark",
+  "archetype": "High-Contrast Event/Agency (Archetype 5/4 Hybrid)",
+  "brand_identity": {
+    "name": "AXIZ Production",
+    "tone": "Energetic, bold, premium, dynamic, cinematic",
+    "primary_colors": {
+      "orange": "#F05A26",
+      "black": "#000000"
+    },
+    "secondary_colors": {
+      "yellow": "#FFCB05",
+      "dark_gray": "#373D42",
+      "light_gray": "#A1A1AA",
+      "surface_dark": "#0A0A0A"
+    }
+  },
+  "typography": {
+    "font_families": {
+      "heading": "GC EPIC PRO Demo, sans-serif",
+      "body": "Outfit, sans-serif"
+    },
+    "custom_font": {
+      "name": "GC EPIC PRO Demo",
+      "url": "https://customer-assets.emergentagent.com/job_a6a7cb56-1198-4bc5-b728-ce9bef106cca/artifacts/7hc8hxjj_GC-EPICPRO-Demo-BF6891cc5419ab8.ttf",
+      "format": "truetype"
+    },
+    "hierarchy": {
+      "h1": "text-5xl md:text-7xl lg:text-8xl tracking-tighter uppercase font-black text-white leading-[0.9]",
+      "h2": "text-4xl md:text-5xl lg:text-6xl tracking-tight uppercase font-bold text-white",
+      "h3": "text-2xl md:text-3xl font-bold uppercase tracking-wide",
+      "body": "text-base md:text-lg text-light_gray leading-relaxed",
+      "overline": "text-sm uppercase tracking-[0.2em] text-orange font-bold"
+    }
+  },
+  "color_palette": {
+    "background": "#000000",
+    "foreground": "#FFFFFF",
+    "primary": "#F05A26",
+    "primary_foreground": "#FFFFFF",
+    "secondary": "#FFCB05",
+    "secondary_foreground": "#000000",
+    "muted": "#373D42",
+    "muted_foreground": "#A1A1AA",
+    "accent": "#F05A26",
+    "accent_foreground": "#FFFFFF",
+    "border": "#373D42"
+  },
+  "layout_and_spacing": {
+    "container": "max-w-7xl mx-auto px-6 md:px-12",
+    "section_padding": "py-24 md:py-32 lg:py-40",
+    "gap_system": "gap-8 md:gap-12 lg:gap-16",
+    "border_radius": "rounded-none"
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#F05A26] hover:bg-[#FFCB05] text-white hover:text-black uppercase tracking-widest font-bold px-8 py-4 transition-all duration-300 transform hover:scale-105 rounded-none",
+      "secondary": "bg-transparent border border-[#373D42] text-white hover:border-[#F05A26] hover:text-[#F05A26] uppercase tracking-widest font-bold px-8 py-4 transition-colors duration-300 rounded-none"
+    },
+    "cards": {
+      "bento_service": "bg-[#0A0A0A] border border-[#373D42] p-8 md:p-12 hover:border-[#F05A26] transition-all duration-500 group relative overflow-hidden",
+      "portfolio_item": "relative group overflow-hidden cursor-pointer"
+    },
+    "inputs": {
+      "base": "w-full bg-transparent border-b border-[#373D42] text-white px-0 py-4 focus:outline-none focus:border-[#F05A26] transition-colors placeholder-[#A1A1AA]"
+    }
+  },
+  "motion_and_interactions": {
+    "scroll_behavior": "Smooth scrolling mandatory (use Lenis or similar).",
+    "reveal": "Fade up and staggered entrance for typography and grid items via framer-motion.",
+    "hover_effects": {
+      "cards": "Subtle inner orange glow (box-shadow) or border-color shift to #F05A26.",
+      "images": "Scale transform (1.05) on hover within hidden overflow container. Grayscale to color transition for portfolio."
+    },
+    "stats": "Animated count-up when in view."
+  },
+  "sections_strategy": {
+    "hero": {
+      "layout": "Full screen (100vh), absolute positioned video/image background with dark overlay (bg-black/60). Text centered or heavily left-aligned.",
+      "visuals": "Hero stage image. Large GC EPIC PRO typography."
+    },
+    "about": {
+      "layout": "Asymmetric 2-column. Left: Overline, massive heading, descriptive text. Right: Layered image of team/backstage.",
+      "visuals": "Team backstage view image. Highlight vibrant energy."
+    },
+    "services": {
+      "layout": "Bento Grid (Control Room style). 1x3 or 2x2 asymmetric spans. Cards should feel like technical panels.",
+      "visuals": "Brand pattern background faintly visible."
+    },
+    "portfolio": {
+      "layout": "Horizontal scroll or Masonry grid of large event photos. Very little text, let the images breathe.",
+      "visuals": "High contrast conference and stage photos."
+    },
+    "clients_marquee": {
+      "layout": "Continuous horizontal scroll (react-fast-marquee). High contrast, grayscale logos that colorize on hover.",
+      "visuals": "Company logos."
+    },
+    "testimonials": {
+      "layout": "Minimalist slider. Large quote marks in Yellow (#FFCB05)."
+    },
+    "stats": {
+      "layout": "4-column grid. Massive numbers in GC EPIC PRO font, orange/yellow gradient text fill."
+    },
+    "contact": {
+      "layout": "Split layout. Left: Contact info and bold CTA. Right: Clean, border-bottom only form fields."
+    },
+    "footer": {
+      "layout": "Massive 'AXIZ' brand text spanning full width at the bottom. Clean links above."
+    }
+  },
+  "image_urls": {
+    "hero_background": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/a6a7cb56-1198-4bc5-b728-ce9bef106cca/images/2fe63e7a586161792b65d7d6d8852840429efbf4ea3ef2761eac3b474e71d190.png",
+      "description": "Modern corporate event stage with dramatic orange/yellow lighting",
+      "category": "hero"
+    },
+    "brand_pattern": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/a6a7cb56-1198-4bc5-b728-ce9bef106cca/images/a46cb7de8223d7d0ab931bc217f8756e16ac6cb0b715f2882a972c6b8616f90d.png",
+      "description": "Abstract wavy vibrant orange to bright yellow gradient lines",
+      "category": "background_texture"
+    },
+    "about_image": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/a6a7cb56-1198-4bc5-b728-ce9bef106cca/images/840ab8357c1f30ea110e80dfcd437d15c361df897600772ca52f5606762e0729.png",
+      "description": "Professional corporate team backstage view",
+      "category": "about"
+    },
+    "portfolio_events": [
+      {
+        "url": "https://images.unsplash.com/photo-1700514077430-3659e38eb5e7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBldmVudCUyMHN0YWdlfGVufDB8fHx8MTc3ODk2MTQ4OXww&ixlib=rb-4.1.0&q=85",
+        "description": "Room filled with tables and chairs for conference",
+        "category": "portfolio"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1607872863060-fb85bd7229c4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwzfHxjb3Jwb3JhdGUlMjBldmVudCUyMHN0YWdlfGVufDB8fHx8MTc3ODk2MTQ4OXww&ixlib=rb-4.1.0&q=85",
+        "description": "Stage with orange screen background",
+        "category": "portfolio"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGNvbmZlcmVuY2UlMjBjcm93ZHxlbnwwfHx8fDE3Nzg5NjE0ODl8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Crowd of people at business conference",
+        "category": "portfolio"
+      }
+    ],
+    "client_logos": [
+      {
+        "url": "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHwxfHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3Nzg5NjE0ODl8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Mercedes emblem",
+        "category": "logo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1496200186974-4293800e2c20?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHwzfHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3Nzg5NjE0ODl8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Slack text logo",
+        "category": "logo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1562783912-21ad31ee2a83?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3Nzg5NjE0ODl8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Jaguar emblem",
+        "category": "logo"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Inject the custom font GC EPIC PRO Demo using a standard CSS @font-face rule pointing to the provided URL.",
+    "Use framer-motion heavily. The user explicitly asked for a 'highly animated' website. Incorporate parallax scroll effects, text reveals on scroll, and hover animations.",
+    "Use lucide-react for all iconography.",
+    "For the client logos marquee, use 'react-fast-marquee'.",
+    "Keep backgrounds deep black (#000000 to #0A0A0A) and use the vibrant orange (#F05A26) and yellow (#FFCB05) strictly as accents for borders, highlights, gradients, and typography overlines.",
+    "Borders should be sharp (rounded-none), echoing a premium, confident, slightly brutalist corporate event aesthetic.",
+    "Contact form needs to be fully wired up to save to the database as requested.",
+    "Ensure the hero section uses the hero_event_stage image with a dark overlay to maintain readability of the GC EPIC PRO typography."
+  ]
+}
