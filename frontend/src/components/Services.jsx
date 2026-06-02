@@ -84,18 +84,19 @@ const Services = () => {
                 className={`group relative bg-black border border-[#1f1f1f] hover:border-[#F05A26] p-8 md:p-10 transition-all duration-500 overflow-hidden ${s.span}`}
                 data-testid={`service-card-${idx}`}
               >
-                {/* Accent corner */}
-                <div className="absolute top-0 right-0 w-12 h-12 border-l border-b border-[#1f1f1f] group-hover:border-[#F05A26] transition-colors" />
-
-                <div className="flex items-start justify-between mb-12">
-                  <span className="font-display text-[#373D42] group-hover:text-[#F05A26] transition-colors text-3xl font-black">
-                    {String(idx + 1).padStart(2, "0")}
-                  </span>
+                {/* Accent corner with Icon */}
+                <div className="absolute top-0 right-0 w-12 h-12 md:w-16 md:h-16 border-l border-b border-[#1f1f1f] group-hover:border-[#F05A26] transition-colors flex items-center justify-center">
                   <Icon
-                    size={28}
+                    size={24}
                     className="text-white/40 group-hover:text-[#FFCB05] transition-colors duration-500"
                     strokeWidth={1.5}
                   />
+                </div>
+
+                <div className="mb-12">
+                  <span className="font-display text-[#373D42] group-hover:text-[#F05A26] transition-colors text-3xl font-black">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
                 </div>
 
                 <h3 className="font-display uppercase text-2xl md:text-3xl font-black text-white mb-4 leading-tight">

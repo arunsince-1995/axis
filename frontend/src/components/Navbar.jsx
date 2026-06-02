@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import AxizLogo from "./AxizLogo";
-
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -62,7 +60,7 @@ const Navbar = () => {
     >
       <div className="container-axiz flex items-center justify-between h-20">
         <Link to="/" className="text-white" data-testid="navbar-logo">
-          <AxizLogo />
+          <img src="/images/Logo atypo Black.png" alt="Axiz Logo" className="h-6 md:h-8 object-contain invert" />
         </Link>
 
         {/* Desktop links */}

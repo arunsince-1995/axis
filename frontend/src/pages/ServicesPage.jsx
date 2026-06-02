@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowUpRight, ArrowLeft } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, ArrowDownLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -212,97 +212,106 @@ const ServicesIntro = () => {
 
 /* ---------- Service Block ---------- */
 const ServiceBlock = ({ title, tagline, desc, images, index }) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const yLeft = useTransform(scrollYProgress, [0, 1], ["0%", "-12%"]);
-  const yRight = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
-
+  const containerRef = useRef(null);
   const isAccent = index % 2 === 1;
 
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  const opacity1 = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
+  const y1 = useTransform(scrollYProgress, [0, 0.2], [50, 0]);
+
+  const opacity2 = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
+  const y2 = useTransform(scrollYProgress, [0.2, 0.4], [50, 0]);
+
+  const opacity3 = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
+  const y3 = useTransform(scrollYProgress, [0.4, 0.6], [50, 0]);
+
+  const opacity4 = useTransform(scrollYProgress, [0.6, 0.8], [0, 1]);
+  const y4 = useTransform(scrollYProgress, [0.6, 0.8], [50, 0]);
+
+  const transforms = [
+    { opacity: opacity1, y: y1 },
+    { opacity: opacity2, y: y2 },
+    { opacity: opacity3, y: y3 },
+    { opacity: opacity4, y: y4 },
+  ];
+
   return (
-    <section
-      ref={ref}
-      className={`relative py-24 md:py-32 border-t border-[#1a1a1a] overflow-hidden ${
-        isAccent ? "bg-[#0A0A0A]" : "bg-black"
-      }`}
-      data-testid={`service-block-${index}`}
-    >
-      <div className="container-axiz">
-        {/* Header row */}
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 mb-12 md:mb-16">
-          <div className="lg:col-span-6">
-            <motion.div
+    <div ref={containerRef} className="relative h-[250vh]">
+      <section
+        className={`sticky top-0 h-[100svh] flex flex-col justify-center py-8 md:py-12 border-t border-[#1a1a1a] overflow-hidden ${isAccent ? "bg-[#0A0A0A]" : "bg-black"}`}
+        data-testid={`service-block-${index}`}
+      >
+        <div className="container-axiz h-full flex flex-col justify-between max-h-full">
+          {/* Top Header */}
+          <div className="flex justify-between items-start shrink-0 mb-6">
+            <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6 }}
-              className="flex items-center gap-4 mb-6"
-            >
-              <span className="font-display text-3xl md:text-4xl font-black text-[#F05A26]">
-                ({String(index + 1).padStart(2, "0")})
-              </span>
-              <span className="h-px flex-1 max-w-[120px] bg-[#373D42]" />
-              <span className="overline">{tagline}</span>
-            </motion.div>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.8 }}
-              className="font-display uppercase font-black text-white leading-[0.9] text-5xl md:text-6xl lg:text-7xl tracking-tight"
+              viewport={{ once: true }}
+              className="font-display uppercase font-black text-white text-5xl md:text-7xl lg:text-8xl tracking-tight leading-none"
             >
               {title}
             </motion.h2>
-          </div>
-
-          <div className="lg:col-span-5 lg:col-start-8 flex flex-col justify-end gap-6">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.15 }}
-              className="text-white/70 text-base md:text-lg leading-relaxed"
+              className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-white/20 flex items-center justify-center text-white shrink-0 hover:bg-white hover:text-black transition-colors cursor-pointer"
             >
-              {desc}
-            </motion.p>
-            <motion.a
-              href="/#contact"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="link-axiz inline-flex items-center gap-2 text-sm uppercase tracking-[0.25em] font-bold text-white hover:text-[#F05A26] transition-colors self-start"
-            >
-              Enquire <ArrowUpRight size={14} />
-            </motion.a>
-          </div>
-        </div>
-
-        {/* Image gallery */}
-        <div className="grid grid-cols-12 gap-3 md:gap-5">
-          <motion.div style={{ y: yLeft }} className="col-span-7 md:col-span-5 aspect-[4/5] overflow-hidden border border-[#1a1a1a]">
-            <ImgTile src={images[0]} />
-          </motion.div>
-          <div className="col-span-5 md:col-span-7 flex flex-col gap-3 md:gap-5">
-            <motion.div style={{ y: yRight }} className="flex-1 aspect-[16/9] overflow-hidden border border-[#1a1a1a]">
-              <ImgTile src={images[1]} />
+              <ArrowDownLeft size={24} /> 
             </motion.div>
-            <div className="grid grid-cols-2 gap-3 md:gap-5 flex-1">
-              <div className="aspect-[4/3] overflow-hidden border border-[#1a1a1a]">
-                <ImgTile src={images[2]} />
-              </div>
-              <div className="aspect-[4/3] overflow-hidden border border-[#1a1a1a]">
-                <ImgTile src={images[3]} />
-              </div>
+          </div>
+
+          {/* Middle Images */}
+          <div className="flex-1 min-h-0 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+            {images.map((src, i) => (
+              <motion.div
+                key={i}
+                style={{ opacity: transforms[i].opacity, y: transforms[i].y }}
+                className="w-full h-full relative overflow-hidden rounded-md border border-[#1a1a1a]"
+              >
+                <ImgTile src={src} />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Bottom Footer */}
+          <div className="flex justify-between items-end mt-6 shrink-0">
+            <div className="max-w-2xl pr-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="text-[#F05A26] text-xs font-bold uppercase tracking-[0.15em] mb-3"
+              >
+                {tagline}
+              </motion.div>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-white/80 text-lg md:text-2xl font-medium leading-tight"
+              >
+                {desc}
+              </motion.p>
             </div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="font-display font-black text-6xl md:text-8xl lg:text-[10rem] text-white/10 tracking-tighter leading-none"
+            >
+              ({String(index + 1).padStart(2, "0")})
+            </motion.div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

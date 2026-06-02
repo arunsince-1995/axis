@@ -51,16 +51,13 @@ const Footer = () => {
         </div>
 
         {/* Massive brand text */}
-        <div className="py-14 select-none">
-          <div className="font-display text-[24vw] md:text-[18vw] leading-[0.8] font-black tracking-tighter text-transparent uppercase"
-            style={{
-              WebkitTextStroke: "1px #1f1f1f",
-              backgroundImage: "linear-gradient(180deg, #111 0%, #000 100%)",
-              WebkitBackgroundClip: "text",
-              backgroundClip: "text",
-            }}
-          >
-            AXIZ
+        <div className="py-14 select-none flex justify-center">
+          <div className="bg-white rounded-2xl md:rounded-[2rem] p-8 md:p-12 w-full flex justify-center">
+            <img 
+              src="/images/Logo Orange.png" 
+              alt="Axiz Logo" 
+              className="w-full h-auto object-contain max-h-[250px]" 
+            />
           </div>
         </div>
 

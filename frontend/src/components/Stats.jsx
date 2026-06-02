@@ -38,7 +38,7 @@ const StatItem = ({ value, suffix, label, index }) => {
       className="border-l-2 border-[#1a1a1a] pl-6 md:pl-10"
       data-testid={`stat-${index}`}
     >
-      <div className="font-display uppercase font-black text-7xl md:text-8xl lg:text-9xl leading-none tracking-tight">
+      <div className="font-display uppercase font-black text-6xl md:text-7xl lg:text-6xl xl:text-7xl 2xl:text-8xl leading-none tracking-tight whitespace-nowrap">
         <span className="text-gradient-brand">
           {n}
           {suffix}
