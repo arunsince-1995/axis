@@ -14,6 +14,8 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ServicesPage from "./pages/ServicesPage";
 
+import Lenis from "lenis";
+
 const Landing = () => {
   useEffect(() => {
     document.title = "AXIZ Production — Corporate Event Production";
@@ -38,6 +40,25 @@ const Landing = () => {
 };
 
 function App() {
+  useEffect(() => {
+    // Standard vanilla Lenis initialization to avoid React 19 binding crashes
+    const lenis = new Lenis({
+      lerp: 0.08,
+      duration: 1.5,
+      smoothTouch: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
     <BrowserRouter>
       <Toaster
