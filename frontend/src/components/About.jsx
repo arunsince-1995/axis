@@ -33,12 +33,9 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="font-display uppercase font-black text-white leading-[0.9] text-5xl md:text-6xl lg:text-7xl tracking-tight"
           >
-            We don't{" "}
-            <span className="text-gradient-brand">stage</span>{" "}
-            events. <br />
-            We{" "}
-            <span className="text-[#F05A26]">choreograph</span>{" "}
-            outcomes.
+            THE SHOW <br />
+            IS WHAT YOU SEE. <br />
+            <span className="text-gradient-brand">PRODUCTION</span> IS WHAT WE DO.
           </motion.h2>
 
           <motion.div
@@ -48,12 +45,9 @@ const About = () => {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="mt-10 max-w-2xl text-white/70 text-base md:text-lg leading-relaxed space-y-5"
           >
-            <p>
-              AXIZ Production is a full-stack corporate event partner. We translate brand strategy into experiences — combining award-winning creative direction, technical production, and on-site precision across the GCC and beyond.
-            </p>
-            <p>
-              Our team unifies strategists, stage designers, AV engineers and on-ground producers under one roof, so your event runs as one frictionless machine.
-            </p>
+            <p>Every exhibition booth, stage, screen, and structure is built on a thousand details.</p>
+            <p>AXIZ takes care of every detail — from fabrication and AV production to installation, technical execution, and show-day operations.</p>
+            <p>You see the result. We know the build.</p>
           </motion.div>
 
           <motion.div
@@ -68,7 +62,7 @@ const About = () => {
               <ArrowUpRight size={16} />
             </a>
             <a href="#contact" className="btn-ghost-axiz">
-              Talk to Producer
+              Talk to Us
             </a>
           </motion.div>
         </div>
@@ -90,10 +84,13 @@ const About = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           </div>
           {/* Floating stat */}
-          <div className="absolute -bottom-8 -left-8 bg-[#F05A26] text-white p-6 hidden md:block">
+          <div className="absolute -bottom-8 -left-8 bg-[#F05A26] text-white p-6 hidden md:block max-w-[220px]">
+            <div className="text-[10px] uppercase tracking-[0.2em] mb-2 font-bold leading-tight text-white/90">
+              Powered by a team with
+            </div>
             <div className="font-display text-5xl font-black leading-none">10+</div>
-            <div className="text-xs uppercase tracking-[0.25em] mt-2 font-bold">
-              Years of <br /> craft
+            <div className="text-xs uppercase tracking-[0.25em] mt-2 font-bold leading-tight">
+              Years of <br /> experience
             </div>
           </div>
         </motion.div>

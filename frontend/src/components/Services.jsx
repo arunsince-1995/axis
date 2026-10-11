@@ -1,43 +1,64 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Mic2, Lightbulb, Speaker, Building2, Calendar, Camera } from "lucide-react";
+import {
+  Layers,
+  Sparkles,
+  Speaker,
+  Monitor,
+  Megaphone,
+  Store,
+  Box,
+  Palette,
+} from "lucide-react";
 
 const services = [
   {
-    icon: Mic2,
-    title: "Keynote & Conference",
-    desc: "End-to-end production for keynotes, summits and shareholder events — staging, run-of-show, content systems.",
+    icon: Layers,
+    title: "Exhibition Booths & Shell Schemes",
+    desc: "Custom Booth Construction · Shell Scheme Booths · Exhibition Build-Up",
     span: "md:col-span-2",
   },
   {
-    icon: Lightbulb,
-    title: "Stage Design",
-    desc: "Bespoke set builds, scenic engineering and brand-led environments.",
+    icon: Sparkles,
+    title: "Event Production",
+    desc: "Product Launches · Conferences · Award Nights",
     span: "md:col-span-1",
   },
   {
     icon: Speaker,
-    title: "AV · Lighting · Sound",
-    desc: "Concert-grade rigs sized for boardrooms to ballrooms.",
+    title: "AV & Technical Production",
+    desc: "Professional Audio · Lighting · Sound Systems · Technical Support",
     span: "md:col-span-1",
   },
   {
-    icon: Calendar,
-    title: "Hybrid & Virtual",
-    desc: "Multi-cam broadcast studios, live streams and audience interaction layers.",
+    icon: Monitor,
+    title: "LED & Digital Displays",
+    desc: "LED Screen Rental · Digital Displays · Video Walls",
     span: "md:col-span-2",
   },
   {
-    icon: Building2,
-    title: "Brand Activations",
-    desc: "Pop-ups, launches and immersive brand worlds that travel with you.",
+    icon: Megaphone,
+    title: "Brand Activations & Roadshows",
+    desc: "Brand Experiences · Promotional Activations · Roadshows",
     span: "md:col-span-2",
   },
   {
-    icon: Camera,
-    title: "Content & Coverage",
-    desc: "Cinematic event films, photo and same-day social edits.",
+    icon: Store,
+    title: "Mall Kiosks & Retail Displays",
+    desc: "Custom Kiosks · Promotional Counters · Retail Installations",
     span: "md:col-span-1",
+  },
+  {
+    icon: Box,
+    title: "3D Projection Mapping",
+    desc: "Architectural Mapping · Immersive Visuals · Projection Experiences",
+    span: "md:col-span-1",
+  },
+  {
+    icon: Palette,
+    title: "Event Branding & Signage",
+    desc: "Event Graphics · Backdrops · Signage · Branding Production",
+    span: "md:col-span-2",
   },
 ];
 
@@ -53,7 +74,7 @@ const Services = () => {
           <div>
             <div className="flex items-center gap-3 mb-5">
               <span className="h-px w-10 bg-[#F05A26]" />
-              <span className="overline">Capabilities · 01—06</span>
+              <span className="overline">Capabilities · 01—08</span>
             </div>
             <motion.h2
               initial={{ opacity: 0, y: 40 }}
@@ -63,11 +84,11 @@ const Services = () => {
               className="font-display uppercase font-black text-white text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tight"
             >
               Built for <span className="text-gradient-brand">brands</span> <br />
-              who don't repeat themselves.
+              That never settle for the ordinary.
             </motion.h2>
           </div>
           <p className="text-white/60 max-w-sm text-base">
-            Six core disciplines, one production team. Engage one or all — we'll architect the rest.
+            Eight core disciplines, one production team. Engage one or all — we'll architect the rest.
           </p>
         </div>
 

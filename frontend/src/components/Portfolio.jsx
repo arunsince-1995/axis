@@ -55,8 +55,8 @@ const Portfolio = () => {
               <span className="overline">Recent Work · Selected</span>
             </div>
             <h2 className="font-display uppercase font-black text-white text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tight">
-              The stage <br />
-              <span className="text-[#FFCB05]">where brands</span> arrive.
+              WHAT WE BUILD <br />
+              <span className="text-[#FFCB05]">SPEAKS LOUDER</span> THAN WHAT WE SAY.
             </h2>
           </div>
           <a href="#contact" className="btn-ghost-axiz self-start">

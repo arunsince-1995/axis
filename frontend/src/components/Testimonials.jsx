@@ -72,7 +72,7 @@ const Testimonials = () => {
         <div className="lg:col-span-8 relative min-h-[260px]">
           <Quote
             size={80}
-            className="absolute -top-6 -left-2 text-[#FFCB05] opacity-20"
+            className="absolute -top-2 -left-2 text-[#FFCB05] opacity-20"
             strokeWidth={1}
           />
           <AnimatePresence mode="wait">
@@ -107,9 +107,8 @@ const Testimonials = () => {
               <button
                 key={idx}
                 onClick={() => setI(idx)}
-                className={`h-px transition-all duration-500 ${
-                  i === idx ? "w-16 bg-[#F05A26]" : "w-8 bg-white/20"
-                }`}
+                className={`h-px transition-all duration-500 ${i === idx ? "w-16 bg-[#F05A26]" : "w-8 bg-white/20"
+                  }`}
                 aria-label={`Go to testimonial ${idx + 1}`}
                 data-testid={`testimonial-dot-${idx}`}
               />

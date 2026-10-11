@@ -29,7 +29,8 @@ const Clients = () => {
           <span className="overline">Trusted by</span>
         </div>
         <h2 className="font-display uppercase font-black text-white text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight max-w-3xl">
-          Producing for the world's <span className="text-gradient-brand">most demanding</span> brands.
+          Producing for the world's <br />
+          <span className="text-gradient-brand">best agencies and brands.</span>
         </h2>
       </div>
 

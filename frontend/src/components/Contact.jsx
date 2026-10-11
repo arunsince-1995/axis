@@ -72,7 +72,7 @@ const Contact = () => {
                 <Mail size={16} />
               </span>
               <span className="link-axiz uppercase tracking-[0.15em] text-sm">
-                hello@axiz.production
+                info@axizpro.com
               </span>
             </a>
             <a href="tel:+971000000000" className="flex items-center gap-4 group" data-testid="contact-phone">
@@ -80,7 +80,7 @@ const Contact = () => {
                 <Phone size={16} />
               </span>
               <span className="link-axiz uppercase tracking-[0.15em] text-sm">
-                +971 (0) 000 0000
+                +974 71867073
               </span>
             </a>
             <div className="flex items-center gap-4">
@@ -88,7 +88,7 @@ const Contact = () => {
                 <MapPin size={16} />
               </span>
               <span className="uppercase tracking-[0.15em] text-sm text-white/70">
-                Dubai · Riyadh · London
+                Qatar-Riyad-Europe
               </span>
             </div>
           </div>
@@ -155,7 +155,7 @@ const Contact = () => {
 
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-4">
             <p className="text-white/40 text-xs uppercase tracking-[0.2em] max-w-sm">
-              We typically reply within one business day with a producer assigned.
+              We typically respond within one business day, with our production team ready to discuss your project.
             </p>
             <button
               type="submit"

@@ -1,59 +1,48 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, ArrowLeft, ArrowDownLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return isMobile;
+};
+
 const SERVICES = [
   {
-    title: "Keynote Conferences",
-    tagline: "Iconic corporate moments",
-    desc: "We architect flagship conferences and summits — staging, run-of-show, content systems and crew — turning your annual moment into a global signal.",
+    title: "Exhibition Booths & Shell Schemes",
+    tagline: "Custom Booth Construction · Shell Scheme Booths · Exhibition Build-Up",
+    desc: "Bespoke exhibition stands, custom booth fabrication, and modular shell scheme builds designed for impact, traffic flow, and seamless on-site assembly.",
     images: [
       "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+    ],
+  },
+  {
+    title: "Event Production",
+    tagline: "Product Launches · Conferences · Award Nights",
+    desc: "Full-scale corporate event production — from high-energy keynote stages to prestigious gala nights and global product reveals.",
+    images: [
       "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80",
-    ],
-  },
-  {
-    title: "Hybrid & Broadcast",
-    tagline: "Seamless live experiences",
-    desc: "Multi-cam broadcast studios, live streaming, and audience interaction layers that erase the line between in-room and online.",
-    images: [
-      "https://images.unsplash.com/photo-1551817958-d9d86fb29431?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1591115765373-5207764f72e7?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1559223607-a43c990c692c?auto=format&fit=crop&w=1200&q=80",
-    ],
-  },
-  {
-    title: "Stage & Set Design",
-    tagline: "Brand-led environments",
-    desc: "Bespoke set builds and scenic engineering — from intimate fireside formats to 30-metre LED hero stages — designed to read on camera and IRL.",
-    images: [
-      "https://images.unsplash.com/photo-1607872863060-fb85bd7229c4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1485872299712-1b54b0a26d97?auto=format&fit=crop&w=1200&q=80",
     ],
   },
   {
-    title: "Immersive Productions",
-    tagline: "Beyond the stage",
-    desc: "We turn venues into multi-sensory environments — projection mapping, spatial audio and interactive layers that pull your audience into the story.",
-    images: [
-      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1499415479124-43c32433a620?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80",
-    ],
-  },
-  {
-    title: "AV · Lighting · Sound",
-    tagline: "Concert-grade precision",
-    desc: "Touring-grade rigs scaled for boardroom to ballroom. Premium lighting design, line-array audio and broadcast-ready vision mixing under one crew.",
+    title: "AV & Technical Production",
+    tagline: "Professional Audio · Lighting · Sound Systems · Technical Support",
+    desc: "Touring-grade sound systems, intelligent lighting rigs, and certified audiovisual technicians ensuring flawless live execution.",
     images: [
       "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1493676304819-0d7a8d026dcf?auto=format&fit=crop&w=1200&q=80",
@@ -62,36 +51,58 @@ const SERVICES = [
     ],
   },
   {
-    title: "Event Management",
-    tagline: "From concept to execution",
-    desc: "End-to-end producers managing every detail — venue, vendors, logistics, hospitality and on-site coordination — so your team can stay on message.",
+    title: "LED & Digital Displays",
+    tagline: "LED Screen Rental · Digital Displays · Video Walls",
+    desc: "High-resolution indoor and outdoor LED screen rentals, seamless curved video walls, and high-brightness digital display installations.",
     images: [
       "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1559223607-a43c990c692c?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1591115765373-5207764f72e7?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80",
     ],
   },
   {
-    title: "Marketing & Sponsorship",
-    tagline: "Amplifying reach, unlocking value",
-    desc: "Integrated campaigns and sponsorship strategy that maximise visibility, attendance and post-event content value across owned and earned channels.",
+    title: "Brand Activations & Roadshows",
+    tagline: "Brand Experiences · Promotional Activations · Roadshows",
+    desc: "Interactive brand spaces, multi-stop nationwide roadshows, and immersive pop-ups designed to engage consumers and generate viral reach.",
     images: [
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1200&q=80",
+    ],
+  },
+  {
+    title: "Mall Kiosks & Retail Displays",
+    tagline: "Custom Kiosks · Promotional Counters · Retail Installations",
+    desc: "Eye-catching mall kiosks, luxury retail fixtures, and durable promotional counters engineered for high-traffic public venues.",
+    images: [
+      "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=1200&q=80",
+    ],
+  },
+  {
+    title: "3D Projection Mapping",
+    tagline: "Architectural Mapping · Immersive Visuals · Projection Experiences",
+    desc: "Turn iconic facades, indoor sets, and physical structures into dynamic, animated spectacles with high-lumen laser projection mapping.",
+    images: [
+      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1499415479124-43c32433a620?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+    ],
+  },
+  {
+    title: "Event Branding & Signage",
+    tagline: "Event Graphics · Backdrops · Signage · Branding Production",
+    desc: "End-to-end event branding solutions including media walls, directional wayfinding, custom stage backdrops, and precision graphic fabrication.",
+    images: [
+      "https://images.unsplash.com/photo-1607872863060-fb85bd7229c4?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1200&q=80",
-    ],
-  },
-  {
-    title: "Content & Coverage",
-    tagline: "Same-day storytelling",
-    desc: "Cinematic event films, photo coverage, and same-day social edits — broadcasting your moment while the room is still buzzing.",
-    images: [
-      "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1535016120720-40c646be5580?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1485872299712-1b54b0a26d97?auto=format&fit=crop&w=1200&q=80",
     ],
   },
 ];
@@ -146,7 +157,7 @@ const ServicesHero = () => {
           <span className="overline">Services</span>
         </motion.div>
 
-        <h1 className="font-display uppercase text-white leading-[0.85] text-[13vw] md:text-[9vw] lg:text-[6.5vw] font-black tracking-tight">
+        <h1 className="font-display uppercase text-white leading-[0.95] sm:leading-[0.85] text-4xl sm:text-6xl md:text-[8vw] lg:text-[6.5vw] font-black tracking-tight max-w-full break-words">
           <motion.span
             initial={{ y: 60, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -212,6 +223,7 @@ const ServicesIntro = () => {
 
 /* ---------- Service Block ---------- */
 const ServiceBlock = ({ title, tagline, desc, images, index }) => {
+  const isMobile = useIsMobile();
   const containerRef = useRef(null);
   const isAccent = index % 2 === 1;
 
@@ -240,19 +252,24 @@ const ServiceBlock = ({ title, tagline, desc, images, index }) => {
   ];
 
   return (
-    <div ref={containerRef} className="relative h-[250vh]">
+    <div
+      ref={containerRef}
+      className={isMobile ? "relative" : "relative h-[250vh]"}
+    >
       <section
-        className={`sticky top-0 h-[100svh] flex flex-col justify-center py-8 md:py-12 border-t border-[#1a1a1a] overflow-hidden ${isAccent ? "bg-[#0A0A0A]" : "bg-black"}`}
+        className={`flex flex-col justify-between py-10 md:py-12 border-t border-[#1a1a1a] overflow-hidden ${
+          isAccent ? "bg-[#0A0A0A]" : "bg-black"
+        } ${isMobile ? "relative min-h-0" : "sticky top-0 h-[100svh]"}`}
         data-testid={`service-block-${index}`}
       >
         <div className="container-axiz h-full flex flex-col justify-between max-h-full">
           {/* Top Header */}
-          <div className="flex justify-between items-start shrink-0 mb-6">
+          <div className="flex justify-between items-start shrink-0 mb-6 gap-4">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="font-display uppercase font-black text-white text-5xl md:text-7xl lg:text-8xl tracking-tight leading-none"
+              className="font-display uppercase font-black text-white text-3xl sm:text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[0.95] md:leading-none"
             >
               {title}
             </motion.h2>
@@ -260,19 +277,23 @@ const ServiceBlock = ({ title, tagline, desc, images, index }) => {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-white/20 flex items-center justify-center text-white shrink-0 hover:bg-white hover:text-black transition-colors cursor-pointer"
+              className="w-10 h-10 md:w-16 md:h-16 rounded-full border border-white/20 md:border-2 flex items-center justify-center text-white shrink-0 hover:bg-white hover:text-black transition-colors cursor-pointer"
             >
-              <ArrowDownLeft size={24} /> 
+              <ArrowDownLeft className="w-5 h-5 md:w-6 md:h-6" /> 
             </motion.div>
           </div>
 
           {/* Middle Images */}
-          <div className="flex-1 min-h-0 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+          <div className="flex-1 min-h-0 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 my-6 md:my-0">
             {images.map((src, i) => (
               <motion.div
                 key={i}
-                style={{ opacity: transforms[i].opacity, y: transforms[i].y }}
-                className="w-full h-full relative overflow-hidden rounded-md border border-[#1a1a1a]"
+                style={!isMobile ? { opacity: transforms[i].opacity, y: transforms[i].y } : undefined}
+                initial={isMobile ? { opacity: 0, y: 20 } : undefined}
+                whileInView={isMobile ? { opacity: 1, y: 0 } : undefined}
+                viewport={isMobile ? { once: true } : undefined}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="w-full aspect-[4/3] md:aspect-auto md:h-full relative overflow-hidden rounded-md border border-[#1a1a1a]"
               >
                 <ImgTile src={src} />
               </motion.div>
@@ -280,7 +301,7 @@ const ServiceBlock = ({ title, tagline, desc, images, index }) => {
           </div>
 
           {/* Bottom Footer */}
-          <div className="flex justify-between items-end mt-6 shrink-0">
+          <div className="flex justify-between items-end mt-6 shrink-0 gap-4">
             <div className="max-w-2xl pr-4">
               <motion.div
                 initial={{ opacity: 0 }}
@@ -295,7 +316,7 @@ const ServiceBlock = ({ title, tagline, desc, images, index }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-white/80 text-lg md:text-2xl font-medium leading-tight"
+                className="text-white/80 text-base md:text-2xl font-medium leading-snug md:leading-tight"
               >
                 {desc}
               </motion.p>
@@ -304,7 +325,7 @@ const ServiceBlock = ({ title, tagline, desc, images, index }) => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="font-display font-black text-6xl md:text-8xl lg:text-[10rem] text-white/10 tracking-tighter leading-none"
+              className="font-display font-black text-5xl md:text-8xl lg:text-[10rem] text-white/10 tracking-tighter leading-none shrink-0"
             >
               ({String(index + 1).padStart(2, "0")})
             </motion.div>

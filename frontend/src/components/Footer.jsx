@@ -8,8 +8,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-12 gap-12 pb-16 border-b border-[#1a1a1a]">
           <div className="md:col-span-5">
             <h3 className="font-display uppercase font-black text-white text-3xl md:text-4xl leading-[1] tracking-tight">
-              Got an event <br />
-              <span className="text-[#F05A26]">that matters?</span>
+              Got a brief? <br />
+              <span className="text-[#F05A26]">Let's talk production.</span>
             </h3>
             <a href="#contact" className="btn-primary-axiz mt-8">
               Start a Project
@@ -25,15 +25,17 @@ const Footer = () => {
           </FooterCol>
 
           <FooterCol title="Capabilities">
-            <FooterLink href="#services">Conferences</FooterLink>
-            <FooterLink href="#services">Stage Design</FooterLink>
-            <FooterLink href="#services">AV & Lighting</FooterLink>
-            <FooterLink href="#services">Hybrid Events</FooterLink>
+            <FooterLink href="#services">Exhibition Booths</FooterLink>
+            <FooterLink href="#services">Event Production</FooterLink>
+            <FooterLink href="#services">AV & Technical</FooterLink>
+            <FooterLink href="#services">LED & Digital Displays</FooterLink>
+            <FooterLink href="#services">Brand Activations</FooterLink>
+            <FooterLink href="#services">3D Projection Mapping</FooterLink>
           </FooterCol>
 
           <FooterCol title="Connect">
-            <FooterLink href="mailto:hello@axiz.production">hello@axiz.production</FooterLink>
-            <FooterLink href="tel:+971000000000">+971 000 0000</FooterLink>
+            <FooterLink href="mailto:info@axizpro.com">info@axizpro.com</FooterLink>
+            <FooterLink href="tel:+97471867073">+974 71867073</FooterLink>
             <div className="flex gap-3 mt-2">
               {[Instagram, Linkedin, Youtube].map((Icon, i) => (
                 <a
