@@ -8,7 +8,11 @@
 .hero-ticker {
   display: inline-flex;
   white-space: nowrap;
-  animation: ticker 25s linear infinite;
+  animation: ticker 55s linear infinite;
+}
+
+.hero-ticker:hover {
+  animation-play-state: paused;
 }
 
 @keyframes ticker {

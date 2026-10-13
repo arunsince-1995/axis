@@ -80,7 +80,7 @@ const Portfolio = () => {
               <img
                 src={e.img}
                 alt={e.title}
-                className="absolute inset-0 w-full h-full object-cover transition-all duration-[1100ms] ease-out grayscale group-hover:grayscale-0 group-hover:scale-110"
+                className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-out grayscale group-hover:grayscale-0 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
 

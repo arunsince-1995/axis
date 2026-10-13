@@ -12,11 +12,11 @@ const Navbar = () => {
   const a = (id) => (isHome ? `#${id}` : `/#${id}`);
 
   const links = [
-    { label: "Work", href: a("portfolio"), isRoute: false },
     { label: "Services", href: "/services", isRoute: true },
     { label: "About", href: a("about"), isRoute: false },
     { label: "Clients", href: a("clients"), isRoute: false },
     { label: "Contact", href: a("contact"), isRoute: false },
+    { label: "Work", href: a("portfolio"), isRoute: false },
   ];
 
   useEffect(() => {
@@ -34,7 +34,20 @@ const Navbar = () => {
       : `nav-link-${link.label.toLowerCase()}`;
     if (link.isRoute) {
       return (
-        <Link to={link.href} onClick={onClick} className={cls} data-testid={testId}>
+        <Link
+          to={link.href}
+          onClick={(e) => {
+            if (onClick) onClick(e);
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+            if (window.__lenis) {
+              window.__lenis.scrollTo(0, { immediate: true });
+            }
+          }}
+          className={cls}
+          data-testid={testId}
+        >
           {link.label}
         </Link>
       );

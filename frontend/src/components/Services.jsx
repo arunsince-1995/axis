@@ -98,10 +98,10 @@ const Services = () => {
             return (
               <motion.div
                 key={s.title}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: idx * 0.08 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: (idx % 3) * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
                 className={`group relative bg-black border border-[#1f1f1f] hover:border-[#F05A26] p-8 md:p-10 transition-all duration-500 overflow-hidden ${s.span}`}
                 data-testid={`service-card-${idx}`}
               >
